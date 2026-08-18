@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #f4f5f4;
+  --color-card: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-accent: #d8fb52;
+  --color-foreground: #111111;
+  --color-muted: #71717a;
+  --color-muted-foreground: #a1a1aa;
+
+  --radius-bento: 28px;
+  --radius-bento-lg: 32px;
+}
+
+body {
+  @apply bg-canvas text-foreground antialiased;
+}
