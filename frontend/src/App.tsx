@@ -10,6 +10,7 @@ import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { PlaceholderPage } from "./pages/PlaceholderPage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { TransactionsPage } from "./pages/TransactionsPage";
 
 export default function App() {
   const initialize = useAuthStore((state) => state.initialize);
@@ -46,10 +47,7 @@ export default function App() {
       >
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/accounts" element={<AccountsPage />} />
-        <Route
-          path="/transactions"
-          element={<PlaceholderPage title="Movimientos" description="Tus transacciones y categorías" />}
-        />
+        <Route path="/transactions" element={<TransactionsPage />} />
         <Route
           path="/budgets"
           element={<PlaceholderPage title="Presupuestos" description="Controla gastos por categoría" />}

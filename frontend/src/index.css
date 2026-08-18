@@ -29,6 +29,10 @@
   --color-danger-strong: #dc2626;
   --color-danger-soft: #fef2f2;
 
+  /* Éxito (ingresos) */
+  --color-success: #16a34a;
+  --color-success-soft: #f0fdf4;
+
   /* Radios Bento */
   --radius-bento: 28px;
   --radius-bento-lg: 32px;
