@@ -1,16 +1,35 @@
 @import "tailwindcss";
 
+/*
+ * TOKENS GLOBALES DE ASTRA
+ * Para cambiar colores, radios, tipografía o cualquier variable de diseño,
+ * edita únicamente este archivo. Los valores se consumen con utilidades
+ * Tailwind: bg-canvas, text-on-dark, bg-danger, rounded-bento-lg, etc.
+ */
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
+  /* Superficies */
   --color-canvas: #f4f5f4;
   --color-card: #ffffff;
   --color-ink: #1a1a1a;
-  --color-accent: #d8fb52;
+  --color-ink-800: #262626;
+
+  /* Texto */
   --color-foreground: #111111;
   --color-muted: #71717a;
   --color-muted-foreground: #a1a1aa;
+  --color-on-dark: #a1a1aa;
 
+  /* Marca / estados */
+  --color-accent: #d8fb52;
+
+  /* Errores */
+  --color-danger: #ef4444;
+  --color-danger-strong: #dc2626;
+  --color-danger-soft: #fef2f2;
+
+  /* Radios Bento */
   --radius-bento: 28px;
   --radius-bento-lg: 32px;
 }
