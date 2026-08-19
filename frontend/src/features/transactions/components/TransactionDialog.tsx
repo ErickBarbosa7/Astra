@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Modal } from "@/components/Modal";
 import { Dropdown, type DropdownOption } from "@/components/ui/dropdown";
 import { useAccountsStore } from "@/features/accounts/store/accountsStore";
-import { useCategoriesStore } from "@/features/categories/store/categoriesStore";
+import { CategoryPicker } from "@/features/categories/components/CategoryPicker";
 import { transactionFormSchema, type TransactionFormValues } from "../schemas";
 import { useTransactionsStore } from "../store/transactionsStore";
 import type { Transaction, TransactionType } from "../types";
@@ -27,7 +27,6 @@ function TransactionForm({
   onClose: () => void;
 }) {
   const accounts = useAccountsStore((state) => state.accounts);
-  const categories = useCategoriesStore((state) => state.categories);
   const createTransaction = useTransactionsStore((state) => state.createTransaction);
   const updateTransaction = useTransactionsStore((state) => state.updateTransaction);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -61,7 +60,6 @@ function TransactionForm({
   });
 
   const selectedType = useWatch({ control, name: "type" });
-  const typeCategories = categories.filter((category) => category.type === selectedType);
 
   const onSubmit = async (values: TransactionFormValues) => {
     setServerError(null);
@@ -172,18 +170,13 @@ function TransactionForm({
           control={control}
           name="categoryId"
           render={({ field }) => (
-            <Dropdown
+            <CategoryPicker
               className="w-full"
               value={field.value ?? ""}
               onChange={field.onChange}
+              type={selectedType}
+              allowEmpty
               placeholder="Sin categoría"
-              options={[
-                { value: "", label: "Sin categoría" },
-                ...typeCategories.map((category): DropdownOption => ({
-                  value: category.id,
-                  label: category.name,
-                })),
-              ]}
             />
           )}
         />

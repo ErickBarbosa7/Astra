@@ -8,7 +8,7 @@ interface CategoriesState {
   loading: boolean;
   error: string | null;
   fetchCategories: () => Promise<void>;
-  createCategory: (input: CreateCategoryInput) => Promise<void>;
+  createCategory: (input: CreateCategoryInput) => Promise<Category>;
   updateCategory: (id: string, input: UpdateCategoryInput) => Promise<void>;
   removeCategory: (id: string) => Promise<void>;
 }
@@ -31,6 +31,7 @@ export const useCategoriesStore = create<CategoriesState>((set) => ({
   async createCategory(input) {
     const category = await categoriesApi.create(input);
     set((state) => ({ categories: [...state.categories, category] }));
+    return category;
   },
 
   async updateCategory(id, input) {

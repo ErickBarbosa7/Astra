@@ -9,6 +9,7 @@ import accountRoutes from "./modules/accounts/account.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import categoryRoutes from "./modules/categories/category.routes.js";
 import healthRoutes from "./modules/health/health.routes.js";
+import reportRoutes from "./modules/reports/report.routes.js";
 import transactionRoutes from "./modules/transactions/transaction.routes.js";
 
 export const app = express();
@@ -32,6 +33,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/accounts", accountRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/transactions", transactionRoutes);
+app.use("/api/reports", reportRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
